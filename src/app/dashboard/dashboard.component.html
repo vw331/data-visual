@@ -1,7 +1,48 @@
 <section class="layout">
-  <header class="header">header</header>
+  <header class="header">
+    <div>left</div>
+    <div class="title">国土规划一张图</div>
+    <div>right</div>
+  </header>
   <main class="main">
-    main
-    <button nz-button nzType="primary">Primary</button>
+    <div class="board-wrap">
+      <div class="board-main">1</div>
+      <div>
+        <nz-card class="h-full" [nzBordered]="false" nzTitle="Card title">
+          <p>Card content</p>
+        </nz-card>
+      </div>
+      <div>3</div>
+      <div>
+        <nz-card class="h-full" [nzBordered]="false" nzTitle="重点纳税行业">
+          <nz-table #basicTable nzSize="middle" [nzShowPagination]="false" [nzData]="dataSet">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data">
+                <td>{{data.name}}</td>
+                <td>{{data.age}}</td>
+                <td>{{data.address}}</td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </nz-card>
+      </div>
+      <div>
+        <nz-card class="h-full" [nzBordered]="false" nzTitle="纳税龙头企业">
+          <p>Card content</p>
+        </nz-card>
+      </div>
+      <div>
+        <nz-card class="h-full" [nzBordered]="false" nzTitle="负利润企业报警">
+          <p>Card content</p>
+        </nz-card>
+      </div>
+    </div>
   </main>
 </section>

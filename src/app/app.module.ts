@@ -12,10 +12,12 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
-import { BoardComponent } from './board/board.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCardModule } from 'ng-zorro-antd/card'
+import { NzTableModule } from 'ng-zorro-antd/table';
+
 
 registerLocaleData(zh);
 
@@ -24,7 +26,6 @@ registerLocaleData(zh);
     AppComponent,
     FirstComponent,
     SecondComponent,
-    BoardComponent,
     DashboardComponent
   ],
   imports: [
@@ -33,7 +34,9 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzButtonModule
+    NzButtonModule,
+    NzCardModule,
+    NzTableModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
