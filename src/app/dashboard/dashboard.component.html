@@ -6,42 +6,23 @@
   </header>
   <main class="main">
     <div class="board-wrap">
-      <div class="board-main">1</div>
-      <div>
-        <nz-card class="h-full" [nzBordered]="false" nzTitle="Card title">
-          <p>Card content</p>
-        </nz-card>
-      </div>
-      <div>3</div>
-      <div>
-        <nz-card class="h-full" [nzBordered]="false" nzTitle="重点纳税行业">
-          <nz-table #basicTable nzSize="middle" [nzShowPagination]="false" [nzData]="dataSet">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Address</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let data of basicTable.data">
-                <td>{{data.name}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.address}}</td>
-              </tr>
-            </tbody>
-          </nz-table>
-        </nz-card>
+      <div class="board-main">
+        <app-mainmap></app-mainmap>
       </div>
       <div>
-        <nz-card class="h-full" [nzBordered]="false" nzTitle="纳税龙头企业">
-          <p>Card content</p>
-        </nz-card>
+        <app-barcharts></app-barcharts>
       </div>
       <div>
-        <nz-card class="h-full" [nzBordered]="false" nzTitle="负利润企业报警">
-          <p>Card content</p>
-        </nz-card>
+        <app-piecharts></app-piecharts>
+      </div>
+      <div>
+        <app-firstgrid></app-firstgrid>
+      </div>
+      <div>
+        <app-secondgrid></app-secondgrid>
+      </div>
+      <div>
+        <app-thirdgrid></app-thirdgrid>
       </div>
     </div>
   </main>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
-interface Person {
+interface Company {
   key: string;
   name: string;
   age: number;
@@ -19,26 +19,16 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  dataSet: Person[] = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
+  dataSet: Company[] = new Array(4).fill({
+    id: 1,
+    title: '医药制造业',
+    total: '24.98'
+  }).map((item, index) => {
+    return {
+      ...item,
+      id: index,
     }
-  ];
+  });
 
   ngOnInit(): void {
   }

@@ -25,6 +25,7 @@
 .main {
   flex: 1;
   margin: 15px;
+  overflow: hidden;
 }
 
 .board-wrap {
@@ -34,9 +35,12 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 15px;
+  overflow: hidden;
 
   & > div {
-    color: #ffffff
+    color: #ffffff;
+    background-color: rgba(256, 256, 256, .4);
+    overflow: hidden;
   }
 
   .board-main {

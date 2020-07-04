@@ -1,0 +1,19 @@
+<div class="mainmap-wrap">
+  <div class="toolbar">
+    <nz-collapse>
+      <nz-collapse-panel nzHeader="图层选择" [nzActive]="true">
+        <nz-checkbox-group [(ngModel)]="checkOptionsOne" (ngModelChange)="log(checkOptionsOne)"></nz-checkbox-group>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <br/>
+    <nz-collapse>
+      <nz-collapse-panel nzHeader="企业筛选">
+        <nz-radio-group [(ngModel)]="radioValue">
+          <label nz-radio [nzValue]="o.value" *ngFor="let o of radioOpts">{{ o.label }}</label>
+        </nz-radio-group>
+      </nz-collapse-panel>
+    </nz-collapse>
+  </div>
+  <div class="charts-wrap">
+  </div>
+</div>

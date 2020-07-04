@@ -17,7 +17,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card'
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 
+import { BarchartsComponent } from './dashboard/barcharts/barcharts.component';
+
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { PiechartsComponent } from './dashboard/piecharts/piecharts.component';
+import { FirstgridComponent } from './dashboard/firstgrid/firstgrid.component';
+import { SecondgridComponent } from './dashboard/secondgrid/secondgrid.component';
+import { ThirdgridComponent } from './dashboard/thirdgrid/thirdgrid.component';
+import { MainmapComponent } from './dashboard/mainmap/mainmap.component';
 
 registerLocaleData(zh);
 
@@ -26,7 +38,13 @@ registerLocaleData(zh);
     AppComponent,
     FirstComponent,
     SecondComponent,
-    DashboardComponent
+    DashboardComponent,
+    BarchartsComponent,
+    PiechartsComponent,
+    FirstgridComponent,
+    SecondgridComponent,
+    ThirdgridComponent,
+    MainmapComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +54,13 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     NzButtonModule,
     NzCardModule,
-    NzTableModule
+    NzTableModule,
+    NzCollapseModule,
+    NzCheckboxModule,
+    NzRadioModule,
+    NgxEchartsModule.forRoot({
+      echarts
+    })
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
