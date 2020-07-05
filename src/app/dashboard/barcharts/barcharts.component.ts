@@ -4,10 +4,10 @@ import { Component, ElementRef, OnInit, AfterViewInit, ViewChild } from '@angula
   selector: 'app-barcharts',
   //templateUrl: './barcharts.component.html',
   template: `
-    <div class="h-full " #wrapper>
+    <div class="h-full" #wrapper>
       <div echarts [initOpts]="initOpts" [options]="options" class="demo-chart"></div>
     </div>`,
-  styleUrls: ['./barcharts.component.less']
+  styles: []
 })
 export class BarchartsComponent implements OnInit, AfterViewInit {
 
