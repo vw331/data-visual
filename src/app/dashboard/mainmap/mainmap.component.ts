@@ -21,9 +21,12 @@ export class MainmapComponent implements OnInit {
     { label: '企业图层', value: '企业图层' }
   ];
   radioOpts = [
-    { label: 'Apple', value: 'Apple' },
-    { label: 'Pear', value: 'Pear' },
-    { label: 'Orange', value: 'Orange' }
+    { label: '阿里巴巴', value: '1' },
+    { label: '腾讯控股', value: '2' },
+    { label: '百度科技', value: '3' },
+    { label: '字节跳动', value: '4' },
+    { label: '网易游戏', value: '5' },
+    { label: '美团生活', value: '6' }
   ];
   options: any;
   radioValue: any;
@@ -43,51 +46,157 @@ export class MainmapComponent implements OnInit {
 
 
   initMap() {
-
-    this.http.get('./assets/geo/HK.json', { observe: 'body'})
+    var mapDate = [
+      {
+        name: '江干区',
+        value: [120.185, 30.274,29999]
+      },
+      {
+        name: '拱墅区',
+        value: [120.182, 30.351,29999]
+      },
+      {
+        name: '西湖区',
+        value: [120.091, 30.27,29999]
+      },
+      {
+        name: '滨江区',
+        value: [120.21, 30.209,29999]
+      },
+      {
+        name: '萧山区',
+        value: [120.254, 30.159,29999]
+      },
+      {
+        name: '余杭区',
+        value: [120.295, 30.427,29999]
+      },
+      {
+        name: '富阳区',
+        value: [119.956, 30.05,29999]
+      },
+      {
+        name: '桐庐县',
+        value: [119.675, 29.784,29999]
+      },
+      {
+        name: '淳安县',
+        value: [119.058, 29.613,29999]
+      },
+      {
+        name: '建德市',
+        value: [119.28, 29.464,29999]
+      },
+      {
+        name: '临安区',
+        value: [119.712, 30.227,29999]
+      },
+      {
+        name: '钱塘新区',
+        value: [120.485, 30.284,29999]
+      }
+    ];
+    this.http.get('./assets/geo/HZ.json', { observe: 'body'})
       .subscribe(data => {
         console.log(data)
-        echarts.registerMap('HK', data)
+        echarts.registerMap('HZ', data)
         this.options = {
-          bmap: {
-            // 百度地图中心经纬度
-            center: [120.13066322374, 30.240018034923],
-            // 百度地图缩放
-            zoom: 14,
-            // 是否开启拖拽缩放，可以只设置 'scale' 或者 'move'
-            roam: true,
-            // 百度地图的自定义样式，见 http://developer.baidu.com/map/jsdevelop-11.htm
-            mapStyle: {}
+          tooltip: {
+            trigger: 'item'
+          },
+          geo: {
+            map: 'HZ',
+            aspectScale: 0.75, //长宽比
+            zoom: 1.1,
+            roam: false,
+            itemStyle: {
+              normal: {
+                areaColor: '#0e3f89',
+                shadowColor: '#182f68',
+                shadowOffsetX: 0,
+                shadowOffsetY: 15
+              },
+              emphasis: {
+                areaColor: '#2AB8FF',
+                borderWidth: 0,
+                color: 'green',
+                label: {
+                  show: false
+                }
+              }
+            }
           },
           series: [
             {
-              name: '香港18区人口密度',
+              name: '杭州',
               type: 'map',
-              mapType: 'HK', // 自定义扩展图表类型
+              mapType: 'HZ', // 自定义扩展图表类型
               label: {
-                  show: true
+                normal: {
+                  show: true,
+                  textStyle: {
+                    color: '#fff'
+                  }
+                },
+                emphasis: {
+                  textStyle: {
+                    color: '#fff'
+                  }
+                }
               },
-              // 自定义名称映射
-              nameMap: {
-                'Central and Western': '中西区',
-                'Eastern': '东区',
-                'Islands': '离岛',
-                'Kowloon City': '九龙城',
-                'Kwai Tsing': '葵青',
-                'Kwun Tong': '观塘',
-                'North': '北区',
-                'Sai Kung': '西贡',
-                'Sha Tin': '沙田',
-                'Sham Shui Po': '深水埗',
-                'Southern': '南区',
-                'Tai Po': '大埔',
-                'Tsuen Wan': '荃湾',
-                'Tuen Mun': '屯门',
-                'Wan Chai': '湾仔',
-                'Wong Tai Sin': '黄大仙',
-                'Yau Tsim Mong': '油尖旺',
-                'Yuen Long': '元朗'
-              }
+              itemStyle: {
+                normal: {
+                  borderColor: '#023867',
+                  borderWidth: 1.5,
+                  areaColor: '#1d7dd4'
+                },
+                emphasis: {
+                  areaColor: '#2586ff',
+                  borderWidth: 0,
+                  color: 'green'
+                }
+              },
+              zoom: 1.1
+            },
+            {
+              type: 'scatter',
+              coordinateSystem: 'geo',
+              showEffectOn: 'render',
+              symbol: 'image://assets/tips.png',
+              symbolSize: [16, 24],
+              hoverAnimation: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 2,
+                  shadowColor: 'rgba(0,0,0,.2)'
+                }
+              },
+              // emphasis: {
+              //   label: {
+              //     show: true,
+              //     width: 200,
+              //     height: 200,
+              //     backgroundColor: '#0b4e7b',
+              //     formatter: function(a){
+              //       console.log(a)
+              //       return '<div>123</div>'
+              //     }
+              //   }
+              // },
+              tooltip: {
+                formatter: function(n) {
+                  return `
+                    <div class="map-tooltip">
+                      <h4>浙江省阿里巴巴科技有限公司</h4>
+                      <p>占地面积：25亩</p>
+                      <p>纳税总额（2020-2011）：1257.21万元</p> 
+                      <p>利润总额（2020-2011）：1257.21万元</p> 
+                    </div>
+                  `
+                },
+                backgroundColor: 'transparent'
+              },
+              data: mapDate
             }
           ]
         }

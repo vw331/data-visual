@@ -4,40 +4,34 @@ import { Component, ElementRef, OnInit, AfterViewInit, ViewChild } from '@angula
   selector: 'app-barcharts',
   //templateUrl: './barcharts.component.html',
   template: `
-    <div class="h-full" #wrapper>
-      <div echarts [initOpts]="initOpts" [options]="options" class="demo-chart"></div>
-    </div>`,
+    <nz-card class="h-full light-shadow light-card"
+      [nzBordered]="false"
+      [nzBodyStyle]="{height: '100%'}">
+        <div echarts style="height: 100%" theme="dark" [options]="options" class="demo-chart"></div>
+    </nz-card>`,
   styles: []
 })
-export class BarchartsComponent implements OnInit, AfterViewInit {
+export class BarchartsComponent implements OnInit {
 
-  @ViewChild('wrapper') wrapper: ElementRef;
-  initOpts: any;
+
   options: any;
   constructor() { }
 
   ngOnInit(): void {
-
+    this.initCharts()
   }
 
-  ngAfterViewInit():void {
-    let wrapperDOM = this.wrapper.nativeElement
-    const [ width, height ] = [wrapperDOM.offsetWidth, wrapperDOM.offsetHeight ];
-    setTimeout(function():void {
-      this.initCharts({width, height})
-    }.bind(this))
 
-  }
-
-  initCharts({width, height}):void {
-    this.initOpts = {
-      width,
-      height
-    }
+  initCharts():void {
     this.options = {
+      backgroundColor: 'transparent',
       color: ['#2ee6fe', '#ff892d'],
       title: {
-        text: '土地使用情况'
+        text: '土地使用情况',
+        textStyle: {
+          color: '#00ffdd',
+          fontSize: 15
+        }
       },
       legend: {
         right: 10,

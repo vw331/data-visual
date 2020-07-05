@@ -1,24 +1,29 @@
 .layout {
-  width: 100wh;
+  position: relative;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(0deg, #042f5c, #042f5c);
+  //background: radial-gradient( #074783, #032950);
+  background: url('../../assets/earth-bg.png') center center no-repeat, radial-gradient( #074783, #032950);
+  background-size: contain;
 }
 
 .header {
   height: 80px;
-  background-color: blue;
   display: flex;
   flex-direction: row;
   align-items: center;
+  background: url('../../assets/header-bg.png') center -1px no-repeat;
   & > div {
     flex: 1
   }
   .title {
     text-align: center;
     font-size: 32px;
-    color: #ffffff;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff, #064a90);
+    background-clip: text;
   }
 }
 
@@ -39,7 +44,6 @@
 
   & > div {
     color: #ffffff;
-    background-color: rgba(256, 256, 256, .4);
     overflow: hidden;
   }
 

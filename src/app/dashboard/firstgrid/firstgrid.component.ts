@@ -4,9 +4,9 @@ import { NzCardComponent } from 'ng-zorro-antd/card';
 @Component({
   selector: 'app-firstgrid',
   template: `
-    <nz-card class="h-full"
+    <nz-card class="h-full light-shadow light-card"
       [nzBordered]="false"
-      [nzBodyStyle]="{padding: 0, height: 'calc(100% - 39px)'}"
+      [nzBodyStyle]="{padding: '0 15px', height: 'calc(100% - 39px)'}"
       nzTitle="重点纳税行业">
       <div class="h-full" #wrapper>
         <nz-table

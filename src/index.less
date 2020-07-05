@@ -1,4 +1,62 @@
-.h-full {
-  height: 100%;
-  overflow: hidden;
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: inherit;
+  background-color: rgba(90, 124, 190, 0.4);
+  -webkit-transition: 0.3s background-color;
+  transition: 0.3s background-color;
+}
+
+.light-shadow {
+  box-shadow: inset 1px 1px 7px 5px rgba(36, 170, 255, 0.2);
+}
+.light-card {
+  .ant-card-head-title {
+    position: relative;
+    padding-left: 20px;
+    font-weight: bold;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 5px;
+      width: 5px;
+      height: 20px;
+      background: #00ffdd
+    }
+  }
+}
+
+.ant-collapse {
+  background: rgba(4, 105, 196, 0.15);
+  box-shadow: inset 1px 1px 7px 5px rgba(36, 170, 255, 0.2);
+  border: 1px solid #00c4fe;
+  border-radius: 3px;
+}
+
+.ant-checkbox-inner {
+  background-color: transparent;
+  border: 1px solid #6ce4ff
+}
+
+.ant-table {
+  color: #ffffff
+}
+
+.map-tooltip {
+  width: 300px;
+  padding: 12px;
+  background-color: #07447cc5;
+  border: 1px solid #29acc2
 }

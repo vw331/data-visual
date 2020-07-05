@@ -3,38 +3,33 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef  } from '@angul
 @Component({
   selector: 'app-piecharts',
   template: `
-    <div class="h-full " #wrapper>
-      <div echarts [initOpts]="initOpts" [options]="options" class="demo-chart"></div>
-  </div>`,
+    <nz-card class="h-full light-shadow light-card"
+      [nzBordered]="false"
+      [nzBodyStyle]="{height: '100%'}">
+        <div echarts style="height: 100%" theme="dark" [options]="options" class="demo-chart"></div>
+    </nz-card>`,
   styles: []
 })
-export class PiechartsComponent implements OnInit, AfterViewInit {
+export class PiechartsComponent implements OnInit {
 
-  @ViewChild('wrapper') wrapper: ElementRef;
-  initOpts: any;
   options: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.initCharts()
   }
 
-  ngAfterViewInit(): void {
-    let wrapperDOM = this.wrapper.nativeElement
-    const [ width, height ] = [wrapperDOM.offsetWidth, wrapperDOM.offsetHeight ];
-    setTimeout(function() {
-      this.initCharts({width, height})
-    }.bind(this))
-  }
+  initCharts():void {
 
-  initCharts({width, height}):void {
-    this.initOpts = {
-      width,
-      height,
-    }
     this.options = {
+      backgroundColor: 'transparent',
       color: ['#2ee6fe', '#ff892d'],
       title: {
-        text: '园区总量情况'
+        text: '园区总量情况',
+        textStyle: {
+          color: '#00ffdd',
+          fontSize: 15
+        }
       },
       legend: {
         right: 10,
@@ -55,7 +50,9 @@ export class PiechartsComponent implements OnInit, AfterViewInit {
           style: {
             x: -10,
             textAlign: 'center',
-            text: '企业数'
+            text: '企业数',
+            color: '#ffffff',
+            fill: '#ffffff'
           }
         },
         {
@@ -66,7 +63,8 @@ export class PiechartsComponent implements OnInit, AfterViewInit {
           style: {
             x: -10,
             textAlign: 'center',
-            text: '税收总额'
+            text: '税收总额',
+            fill: '#ffffff'
           }
         },
         {
@@ -77,7 +75,8 @@ export class PiechartsComponent implements OnInit, AfterViewInit {
           style: {
             x: -10,
             textAlign: 'center',
-            text: '固定资产投资'
+            text: '固定资产投资',
+            fill: '#ffffff'
           }
         }
       ],
