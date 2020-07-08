@@ -38,6 +38,26 @@
   }
 }
 
+.some-fancy {
+  position: relative;
+  &:before {
+    content: ' ';
+    position: absolute;
+    top: 0;right: 0; left: 0;
+    height: 8px;
+    background: url('./assets/cdec.png') center center no-repeat;
+    background-size: cover;
+  }
+  &:after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;right: 0; left: 0;
+    height: 8px;
+    background: url('./assets/cdec.png') center center no-repeat;
+    background-size: cover;
+  }
+}
+
 .ant-collapse {
   background: rgba(4, 105, 196, 0.15);
   box-shadow: inset 1px 1px 7px 5px rgba(36, 170, 255, 0.2);

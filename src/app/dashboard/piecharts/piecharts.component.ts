@@ -3,7 +3,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef  } from '@angul
 @Component({
   selector: 'app-piecharts',
   template: `
-    <nz-card class="h-full light-shadow light-card"
+    <nz-card class="h-full light-shadow light-card  some-fancy "
       [nzBordered]="false"
       [nzBodyStyle]="{height: '100%'}">
         <div echarts style="height: 100%" theme="dark" [options]="options" class="demo-chart"></div>
