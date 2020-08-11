@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as echarts from 'echarts';
 import { Observable, forkJoin } from 'rxjs';
-import { L } from '../../global';
 
 @Component({
   selector: 'app-mainmap',
